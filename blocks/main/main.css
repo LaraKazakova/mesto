@@ -1,0 +1,4 @@
+.main {
+  /* sticky footer */
+  flex-grow: 1;
+}
