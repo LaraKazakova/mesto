@@ -1,0 +1,7 @@
+/* mix for narrower blocks */
+@media (max-width: 918px) {
+  .content-narrow {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}
