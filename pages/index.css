@@ -12,7 +12,14 @@
 
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/content-narrow/content-narrow.css);
-
+@import url(../blocks/profile-block/profile-block.css);
+@import url(../blocks/profile-block/__avatar/profile-block__avatar.css);
+@import url(../blocks/profile-block/__title/profile-block__title.css);
+@import url(../blocks/content-overflow/content-overflow.css);
+@import url(../blocks/profile-block/__edit-button/profile-block__edit-button.css);
+@import url(../blocks/link-effect/link-effect.css);
+@import url(../blocks/profile-block/__subtitle/profile-block__subtitle.css);
+@import url(../blocks/add-button/add-button.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);

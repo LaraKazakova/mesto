@@ -1,0 +1,18 @@
+.profile-block__subtitle {
+  grid-area: job;
+  align-self: start;
+  margin: 0;
+  padding: 7px 0 0;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  text-align: left;
+}
+
+@media (max-width: 619px) {
+  .profile-block__subtitle {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+  }
+}
