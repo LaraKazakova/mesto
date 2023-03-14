@@ -7,10 +7,17 @@
   column-gap: 30px;
 }
 
-@media (max-width: 619px) {
+@media (max-width: 918px) {
   .profile {
     flex-direction: column;
     justify-content: center;
+    row-gap: 50px;
+  }
+}
+
+@media (max-width: 619px) {
+  .profile {
+    gap: 0;
   }
 }
 

@@ -13,13 +13,19 @@
   background-size: 22px 22px;
   background-color: rgba(0, 0, 0, 0);
 }
+
 .add-button:hover {
   opacity: .6;
 }
 
+@media (max-width: 918px) {
+  .add-button {
+    width: 282px;
+  }
+}
+
 @media (max-width: 619px) {
   .add-button {
-    width: 100%;
     background-size: 16px 16px;
   }
 }
