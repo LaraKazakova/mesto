@@ -1,5 +1,5 @@
 .link-effect {
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity .8s ease-in-out;
 }
 
 .link-effect:hover {

@@ -24,42 +24,42 @@
       </section>
       <section class="elements content-narrow" aria-label="Фотогалерея">
         <ul class="elements__container">
-          <li>
+          <li class="elements__item">
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/kolyma.jpg" alt="Машина на обледеневшей дороге">
               <h2 class="photo-card__title content-overflow">Колыма</h2>
               <button class="photo-card__button-like link-effect"></button>
             </article>
           </li>
-          <li>
+          <li class="elements__item">
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/teriberka_murmansk.jpg" alt="Деревянный дом в снегу">
               <h2 class="photo-card__title content-overflow">Териберка</h2>
               <button class="photo-card__button-like link-effect"></button>
             </article>
           </li>
-          <li>
+          <li class="elements__item">
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/elbrus_slope.jpg" alt="Вид на горную гряду со склона Эльбруса">
               <h2 class="photo-card__title content-overflow">Эльбрус</h2>
               <button class="photo-card__button-like link-effect"></button>
             </article>
           </li>
-          <li>
+          <li class="elements__item">
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/chukotka.jpg" alt="Берег Чукотки и моря">
               <h2 class="photo-card__title content-overflow">Чукотка</h2>
               <button class="photo-card__button-like link-effect"></button>
             </article>
           </li>
-          <li>
+          <li class="elements__item">
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/solovki.jpg" alt="Деревянная церквушка на фоне моря">
               <h2 class="photo-card__title content-overflow">Соловки</h2>
               <button class="photo-card__button-like link-effect"></button>
             </article>
           </li>
-          <li>
+          <li class="elements__item">
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/magadan.jpg" alt="Затонувший в снегах деревянный корабль">
               <h2 class="photo-card__title content-overflow">Магадан</h2>
@@ -72,6 +72,18 @@
     <footer class="footer content-narrow">
       <p class="footer__copyright">© 2023 Mesto Russia</p>
     </footer>
+  </div>
+
+  <div class="popup">
+    <div class="popup__container">
+      <button class="popup__button-close link-effect" type="button"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form action="#" class="form">
+        <input class="form__input" type="text" name="fio" value="Жак-Ив Кусто">
+        <input class="form__input" type="text" name="job" value="Исследователь океана">
+        <input class="form__button link-effect" type="submit" value="Сохранить">
+      </form>
+    </div>
   </div>
 </body>
 </html>
