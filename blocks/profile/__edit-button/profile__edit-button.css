@@ -1,7 +1,7 @@
-.profile-block__edit-button {
+.profile__edit-button {
   grid-area: edit-button;
+  justify-self: end;
   align-self: end;
-  display: block;
   padding: 0;
   margin: 0 0 9px 18px;
   width: 24px;
@@ -14,12 +14,13 @@
   background-size: 10px 10px;
   background-color: rgba(0, 0, 0, 0);
 }
-.profile-block__edit-button:hover {
+.profile__edit-button:hover {
   opacity: .6;
 }
 
 @media (max-width: 619px) {
-  .profile-block__edit-button {
+  .profile__edit-button {
+    justify-self: start;
     align-self: start;
     margin: 7px 0 0 10px;
     width: 18px;

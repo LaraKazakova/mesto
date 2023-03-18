@@ -1,23 +1,31 @@
 .profile {
   padding-top: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: 30px;
+  display: grid;
+  grid-template-areas:
+    "avatar fio edit-button add-button"
+    "avatar job job add-button";
+  grid-template-columns: 150px fit-content(100%) 42px minmax(180px, 1fr);
 }
 
 @media (max-width: 918px) {
   .profile {
-    flex-direction: column;
+    grid-template-areas:
+      "avatar fio edit-button"
+      "avatar job job"
+      "add-button add-button add-button";
+    grid-template-columns: 150px fit-content(100%) 42px;
     justify-content: center;
-    row-gap: 50px;
   }
 }
 
 @media (max-width: 619px) {
   .profile {
-    gap: 0;
+    grid-template-areas:
+      "avatar avatar"
+      "fio edit-button"
+      "job job"
+      "add-button add-button";
+    grid-template-columns: fit-content(80%) fit-content(50%);
   }
 }
 
