@@ -17,10 +17,10 @@
         <article class="profile-block">
           <img class="profile-block__avatar" src="./images/avatar.jpg" alt="Фото Жак-Ива Кусто в красной шапке и голубой рубашке">
           <h1 class="profile-block__title content-overflow">Жак-Ив Кусто</h1>
-          <button class="profile-block__edit-button link-effect" type="button"></button>
+          <button class="profile-block__edit-button link-effect" type="button" aria-label="Редактировать профиль"></button>
           <p class="profile-block__subtitle content-overflow">Исследователь океана</p>
         </article>
-        <button class="add-button link-effect" type="button"></button>
+        <button class="add-button link-effect" type="button" aria-label="Добавить фотокарточку"></button>
       </section>
       <section class="elements content-narrow" aria-label="Фотогалерея">
         <ul class="elements__container">
@@ -28,42 +28,42 @@
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/kolyma.jpg" alt="Машина на обледеневшей дороге">
               <h2 class="photo-card__title content-overflow">Колыма</h2>
-              <button class="photo-card__button-like link-effect"></button>
+              <button class="photo-card__button-like link-effect" type="button" aria-label=" фотокарточку"></button>
             </article>
           </li>
           <li class="elements__item">
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/teriberka_murmansk.jpg" alt="Деревянный дом в снегу">
               <h2 class="photo-card__title content-overflow">Териберка</h2>
-              <button class="photo-card__button-like link-effect"></button>
+              <button class="photo-card__button-like link-effect" type="button" aria-label="Похвалить фотокарточку"></button>
             </article>
           </li>
           <li class="elements__item">
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/elbrus_slope.jpg" alt="Вид на горную гряду со склона Эльбруса">
               <h2 class="photo-card__title content-overflow">Эльбрус</h2>
-              <button class="photo-card__button-like link-effect"></button>
+              <button class="photo-card__button-like link-effect" type="button" aria-label="Похвалить фотокарточку"></button>
             </article>
           </li>
           <li class="elements__item">
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/chukotka.jpg" alt="Берег Чукотки и моря">
               <h2 class="photo-card__title content-overflow">Чукотка</h2>
-              <button class="photo-card__button-like link-effect"></button>
+              <button class="photo-card__button-like link-effect" type="button" aria-label="Похвалить фотокарточку"></button>
             </article>
           </li>
           <li class="elements__item">
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/solovki.jpg" alt="Деревянная церквушка на фоне моря">
               <h2 class="photo-card__title content-overflow">Соловки</h2>
-              <button class="photo-card__button-like link-effect"></button>
+              <button class="photo-card__button-like link-effect" type="button" aria-label="Похвалить фотокарточку"></button>
             </article>
           </li>
           <li class="elements__item">
             <article class="photo-card">
               <img class="photo-card__picture" src="./images/gallery/magadan.jpg" alt="Затонувший в снегах деревянный корабль">
               <h2 class="photo-card__title content-overflow">Магадан</h2>
-              <button class="photo-card__button-like link-effect"></button>
+              <button class="photo-card__button-like link-effect" type="button" aria-label="Похвалить фотокарточку"></button>
           </article>
           </li>
         </ul>
@@ -76,7 +76,7 @@
 
   <div class="popup">
     <div class="popup__container">
-      <button class="popup__button-close link-effect" type="button"></button>
+      <button class="popup__button-close link-effect" type="button" aria-label="Закрыть попап"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form action="#" class="form">
         <input class="form__input" type="text" name="fio" value="" placeholder="введите имя">
