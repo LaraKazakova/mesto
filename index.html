@@ -30,8 +30,8 @@
     </footer>
   </div>
 
-  <div class="popup">
-    <div class="popup__container ">
+  <div class="popup popup_target_edit-profile popup_overlay_light">
+    <div class="popup__container popup__container_type_form">
       <button class="popup__button-close link-effect" type="button" aria-label="Закрыть попап"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="form" action="#" name="formEditProfile">
@@ -40,23 +40,25 @@
         <input class="form__button link-effect" type="submit" value="Сохранить">
       </form>
     </div>
-    <div class="popup__container">
+  </div>
+  <div class="popup popup_target_add-place popup_overlay_light">
+    <div class="popup__container popup__container_type_form">
       <button class="popup__button-close link-effect" type="button" aria-label="Закрыть попап"></button>
-      <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="form" action="#" name="formEditProfile">
-        <input class="form__input" type="text" name="fio" value="" placeholder="введите имя" aria-label="введите имя">
-        <input class="form__input" type="text" name="job" value="" placeholder="введите профессию" aria-label="введите профессию">
-        <input class="form__button link-effect" type="submit" value="Сохранить">
+      <h2 class="popup__title">Новое место</h2>
+      <form class="form" action="#" name="formAddPlace">
+        <input class="form__input" type="text" name="name" value="" placeholder="Название" aria-label="введите название">
+        <input class="form__input" type="text" name="url" value="" placeholder="Ссылка на картинку" aria-label="введите url">
+        <input class="form__button link-effect" type="submit" value="Создать">
       </form>
     </div>
+  </div>
+  <div class="popup popup_target_show-place popup_overlay_dark">
     <div class="popup__container">
       <button class="popup__button-close link-effect" type="button" aria-label="Закрыть попап"></button>
-      <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="form" action="#" name="formEditProfile">
-        <input class="form__input" type="text" name="fio" value="" placeholder="введите имя" aria-label="введите имя">
-        <input class="form__input" type="text" name="job" value="" placeholder="введите профессию" aria-label="введите профессию">
-        <input class="form__button link-effect" type="submit" value="Сохранить">
-      </form>
+      <figure class="popup__image-block">
+        <img class="popup__image" src="#" alt="#">
+        <figcaption class="popup__image-caption"> </figcaption>
+      </figure>
     </div>
   </div>
 
