@@ -1,11 +1,44 @@
 const buttonEditProfile = document.querySelector('.profile__edit-button');
-let nameElement = document.querySelector('.profile__title');
-let jobElement = document.querySelector('.profile__subtitle');
-let popupElement = document.querySelector('.popup');
-let formElement = document.querySelector('.form');
-let nameInput = formElement.querySelector('.form__input[name="fio"]');
-let jobInput = formElement.querySelector('.form__input[name="job"]');
+const nameElement = document.querySelector('.profile__title');
+const jobElement = document.querySelector('.profile__subtitle');
+const popupElement = document.querySelector('.popup');
+const formElement = document.querySelector('.form');
+const nameInput = formElement.querySelector('.form__input[name="fio"]');
+const jobInput = formElement.querySelector('.form__input[name="job"]');
 const buttonCloseForm = document.querySelector('.popup__button-close');
+// photo cards
+const photoCardsTemplate = document.querySelector('.photo-cards');
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }/*,
+  {
+    name: 'Карачаевск',
+    link: 'https://images.unsplash.com/photo-1538819285938-6a9b4eda500b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
+  }*/
+];
+const photoCardsContainer = document.querySelector('.elements__container');
 
 function handlePopupOpen() {
   nameInput.value = nameElement.textContent;
@@ -25,6 +58,41 @@ function handleFormSubmit(evt) {
 
   handlePopupClose();
 }
+
+// photo cards
+function createCard(card) {
+  const cardsTemplate = photoCardsTemplate.content;
+  const cardNew = cardsTemplate.querySelector('.elements__item').cloneNode(true);
+  // populate
+  cardNew.querySelector('.photo-card__picture').src = card.link;
+  cardNew.querySelector('.photo-card__picture').alt = card.name;
+  cardNew.querySelector('.photo-card__title').textContent = card.name;
+ // listeners
+ cardNew.querySelector('.photo-card__button-like').addEventListener('click', handlePhotoCardLike);
+ cardNew.querySelector('.photo-card__button-delete').addEventListener('click', handlePhotoCardDelete);
+ cardNew.querySelector('.photo-card__picture').addEventListener('click', handlePhotoCardOpen);
+ return cardNew;
+}
+function placeCard(cardObject, container) {
+  const card = createCard(cardObject);
+  container.append(card);
+}
+
+function handlePhotoCardLike() {
+  console.log('like this photo-card');
+}
+function handlePhotoCardDelete() {
+  console.log('delete this photo-card');
+}
+function handlePhotoCardOpen() {
+  console.log('open this photo-card');
+}
+
+function placeInitialCards() {
+  initialCards.map((item) => placeCard(item, photoCardsContainer));
+}
+
+placeInitialCards();
 
 buttonEditProfile.addEventListener('click', handlePopupOpen);
 formElement.addEventListener('submit', handleFormSubmit);
