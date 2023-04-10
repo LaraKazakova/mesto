@@ -25,7 +25,9 @@
       "fio edit-button"
       "job job"
       "add-button add-button";
-    grid-template-columns: fit-content(80%) fit-content(50%);
+    grid-template-columns: fit-content(calc(282px - 28px)) fit-content(50%);
+    max-width: 282px;
+    margin: 0 auto;
   }
 }
 
