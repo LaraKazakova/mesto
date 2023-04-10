@@ -4,12 +4,12 @@ const jobElement = document.querySelector('.profile__subtitle');
 const buttonAddPlace = document.querySelector('.profile__add-button');
 // popup - edit profile
 const popupEditProfileElement = document.querySelector('.popup_target_edit-profile');
-const formEditProfileElement = document.querySelector('.form[name="formEditProfile"]');
+const formEditProfileElement = document.forms['formEditProfile'];
 const fioInput = popupEditProfileElement.querySelector('.form__input[name="fio"]');
 const jobInput = popupEditProfileElement.querySelector('.form__input[name="job"]');
 // popup - add place
 const popupAddPlaceElement = document.querySelector('.popup_target_add-place');
-const formAddPlaceElement = document.querySelector('.form[name="formAddPlace"]');
+const formAddPlaceElement = document.forms['formAddPlace'];
 const nameInput = formAddPlaceElement.querySelector('.form__input[name="name"]');
 const urlInput = formAddPlaceElement.querySelector('.form__input[name="url"]');
 // popup - show place
@@ -17,36 +17,11 @@ const popupShowPlaceElement = document.querySelector('.popup_target_show-place')
 const popupShowPlaceImageElement = popupShowPlaceElement.querySelector('.popup__image');
 const popupShowPlaceImageCaptionElement = popupShowPlaceElement.querySelector('.popup__image-caption');
 // popup - 3 close buttons
-const buttonCloseForm = document.querySelectorAll('.popup__button-close');
+const buttonCloseFormList = document.querySelectorAll('.popup__button-close');
 // photo cards
 const photoCardsContainer = document.querySelector('.elements__container');
-const photoCardsTemplate = document.querySelector('.photo-cards').content;
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+const photoCardsTemplate = document.querySelector('.photo-cards').content.querySelector('.elements__item');
+
 
 const openPopup = (popupElement) => {
   popupElement.classList.add('popup_opened');
@@ -82,13 +57,13 @@ const handleFormAddPlaceSubmit = (evt) => {
 
 // photo cards
 const createCard = (card) => {
-  const cardNew = photoCardsTemplate.querySelector('.elements__item').cloneNode(true);
+  const cardNew = photoCardsTemplate.cloneNode(true);
   // populate
   cardNew.querySelector('.photo-card__picture').src = card.link;
   cardNew.querySelector('.photo-card__picture').alt = card.name;
   cardNew.querySelector('.photo-card__title').textContent = card.name;
  // listeners
- set3EventListeners(cardNew);
+ setEventListeners(cardNew);
  return cardNew;
 };
 
@@ -100,7 +75,7 @@ const placeCard = (cardObject, container, is_initial=false) => {
     container.prepend(card);
 };
 
-const set3EventListeners = (element) => {
+const setEventListeners = (element) => {
   element.querySelector('.photo-card__button-like').addEventListener('click', handlePhotoCardLike);
   element.querySelector('.photo-card__button-delete').addEventListener('click', handlePhotoCardDelete);
   element.querySelector('.photo-card__picture').addEventListener('click', handlePhotoCardOpen);
@@ -127,13 +102,18 @@ const placeInitialCards = () => {
   initialCards.map(item => placeCard(item, photoCardsContainer, true));
 };
 
+const handleAddPlaceOpen = () => {
+  formAddPlaceElement.reset();
+  openPopup(popupAddPlaceElement);
+};
+
 
 placeInitialCards();
 
 buttonEditProfile.addEventListener('click', populatePopupEditProfile);
 formEditProfileElement.addEventListener('submit', handleFormEditProfileSubmit);
 
-buttonAddPlace.addEventListener('click', () => { openPopup(popupAddPlaceElement); } );
+buttonAddPlace.addEventListener('click', handleAddPlaceOpen);
 formAddPlaceElement.addEventListener('submit', handleFormAddPlaceSubmit);
 
-buttonCloseForm.forEach(btn => btn.addEventListener('click', closePopup));
+buttonCloseFormList.forEach(btn => btn.addEventListener('click', closePopup));
