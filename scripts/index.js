@@ -17,18 +17,34 @@ const popupShowPlaceElement = document.querySelector('.popup_target_show-place')
 const popupShowPlaceImageElement = popupShowPlaceElement.querySelector('.popup__image');
 const popupShowPlaceImageCaptionElement = popupShowPlaceElement.querySelector('.popup__image-caption');
 // popup - 3 close buttons
-const buttonCloseFormList = document.querySelectorAll('.popup__button-close');
+const buttonsCloseForm = document.querySelectorAll('.popup__button-close');
 // photo cards
 const photoCardsContainer = document.querySelector('.elements__container');
 const photoCardsTemplate = document.querySelector('.photo-cards').content.querySelector('.elements__item');
 
+const closePopupViaClickOnOverlay = (evt) => {
+  if(evt.target.classList.contains('popup_opened'))
+    closePopup(evt.target);
+};
+
+const closePopupViaClickOnEsc = (evt) => {
+  if(evt.code == 'Escape')
+    closePopup(document.querySelector('.popup_opened'));
+};
 
 const openPopup = (popupElement) => {
   popupElement.classList.add('popup_opened');
+  popupElement.addEventListener('click', closePopupViaClickOnOverlay);
+  document.addEventListener('keyup', closePopupViaClickOnEsc);
 };
 
 const closePopup = (popupElement) => {
-  popupElement.target.closest('.popup').classList.remove('popup_opened');
+  if(popupElement.target)
+    popupElement.target.closest('.popup').classList.remove('popup_opened');
+  else
+    popupElement.classList.remove('popup_opened');
+  popupElement.removeEventListener('click', closePopupViaClickOnOverlay);
+  document.removeEventListener('keyup', closePopupViaClickOnEsc);
 };
 
 const populatePopupEditProfile = () => {
@@ -116,4 +132,4 @@ formEditProfileElement.addEventListener('submit', handleFormEditProfileSubmit);
 buttonAddPlace.addEventListener('click', handleAddPlaceOpen);
 formAddPlaceElement.addEventListener('submit', handleFormAddPlaceSubmit);
 
-buttonCloseFormList.forEach(btn => btn.addEventListener('click', closePopup));
+buttonsCloseForm.forEach(btn => btn.addEventListener('click', closePopup));

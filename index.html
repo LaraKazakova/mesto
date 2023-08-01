@@ -35,10 +35,10 @@
       <button class="popup__button-close link-effect" type="button" aria-label="Закрыть попап"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="form" action="#" name="formEditProfile" novalidate>
-        <input class="form__input" id="formEditProfile_fio" type="text" name="fio" value="" placeholder="введите имя" aria-label="введите имя" required minlength="2" maxlength="40">
-        <span class="form__input-error"></span>
-        <input class="form__input" id="formEditProfile_job" type="text" name="job" value="" placeholder="введите профессию" aria-label="введите профессию" required minlength="2" maxlength="200">
-        <span class="form__input-error"></span>
+        <input class="form__input" id="formEditProfileFio" type="text" name="fio" value="" placeholder="введите имя" aria-label="введите имя" required minlength="2" maxlength="40">
+        <span class="form__input-error formEditProfileFioError"></span>
+        <input class="form__input" id="formEditProfileJob" type="text" name="job" value="" placeholder="введите профессию" aria-label="введите профессию" required minlength="2" maxlength="200">
+        <span class="form__input-error formEditProfileJobError"></span>
         <button class="form__button link-effect" type="submit">Сохранить</button>
       </form>
     </div>
@@ -48,10 +48,10 @@
       <button class="popup__button-close link-effect" type="button" aria-label="Закрыть попап"></button>
       <h2 class="popup__title">Новое место</h2>
       <form class="form" action="#" name="formAddPlace" novalidate>
-        <input class="form__input" id="formAddPlace_name" type="text" name="name" value="" placeholder="Название" aria-label="введите название" required minlength="2" maxlength="30">
-        <span class="form__input-error"></span>
-        <input class="form__input" id="formAddPlace_url" type="text" name="url" value="" placeholder="Ссылка на картинку" aria-label="введите url" required type="url">
-        <span class="form__input-error"></span>
+        <input class="form__input" id="formAddPlaceName" type="text" name="name" value="" placeholder="Название" aria-label="введите название" required minlength="2" maxlength="30">
+        <span class="form__input-error formAddPlaceNameError"></span>
+        <input class="form__input" id="formAddPlaceUrl" type="url" name="url" value="" placeholder="Ссылка на картинку" aria-label="введите url" required>
+        <span class="form__input-error formAddPlaceUrlError"></span>
         <button class="form__button link-effect" type="submit">Создать</button>
       </form>
     </div>
