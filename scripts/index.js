@@ -36,10 +36,7 @@ const openPopup = (popupElement) => {
 };
 
 const closePopup = (popupElement) => {
-  if(popupElement.target)
-    popupElement.target.closest('.popup').classList.remove('popup_opened');
-  else
-    popupElement.classList.remove('popup_opened');
+  popupElement.classList.remove('popup_opened');
   document.removeEventListener('keyup', closePopupViaClickOnEsc);
 };
 
@@ -66,7 +63,7 @@ const handleFormEditProfileSubmit = (evt) => {
   nameElement.textContent = fioInput.value;
   jobElement.textContent = jobInput.value;
 
-  closePopup(evt);
+  closePopup(evt.target.closest('.popup'));
 };
 
 const handleFormAddPlaceSubmit = (evt) => {
@@ -75,7 +72,7 @@ const handleFormAddPlaceSubmit = (evt) => {
   const obj = { name: nameInput.value, link: urlInput.value };
   placeCard(obj, photoCardsContainer);
 
-  closePopup(evt);
+  closePopup(evt.target.closest('.popup'));
 };
 
 // photo cards
