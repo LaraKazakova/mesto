@@ -63,7 +63,7 @@ const handleFormEditProfileSubmit = (evt) => {
   nameElement.textContent = fioInput.value;
   jobElement.textContent = jobInput.value;
 
-  closePopup(evt.target.closest('.popup'));
+  closePopup(popupEditProfileElement);
 };
 
 const handleFormAddPlaceSubmit = (evt) => {
@@ -72,7 +72,7 @@ const handleFormAddPlaceSubmit = (evt) => {
   const obj = { name: nameInput.value, link: urlInput.value };
   placeCard(obj, photoCardsContainer);
 
-  closePopup(evt.target.closest('.popup'));
+  closePopup(popupAddPlaceElement);
 };
 
 // photo cards
