@@ -69,6 +69,7 @@ const handleFormAddPlaceSubmit = (evt) => {
 
   const obj = { name: nameInput.value, link: urlInput.value };
   placeCard(obj, photoCardsContainer);
+  formAddPlaceElement.reset();
 
   closePopup(popupAddPlaceElement);
 };
@@ -121,7 +122,6 @@ const placeInitialCards = () => {
 };
 
 const handleAddPlaceOpen = () => {
-  formAddPlaceElement.reset();
   openPopup(popupAddPlaceElement);
 };
 
