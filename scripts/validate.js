@@ -33,14 +33,21 @@ const hasAnyInvalidValue = (inputs) => {
   return inputs.some((input) => !input.validity.valid);
 };
 
+const enableSubmitButton = (button, config) => {
+  button.classList.remove(config.inactiveButtonClass);
+  button.disabled = false;
+};
+
+const disableSubmitButton = (button, config) => {
+  button.classList.add(config.inactiveButtonClass);
+  button.disabled = true;
+};
+
 const toggleSubmitButtonState = (inputs, button, config) => {
-  if(hasAnyInvalidValue(inputs)) {
-    button.classList.add(config.inactiveButtonClass);
-    button.disabled = true;
-  } else {
-    button.classList.remove(config.inactiveButtonClass);
-    button.disabled = false;
-  }
+  if(hasAnyInvalidValue(inputs))
+    disableSubmitButton(button, config);
+  else
+    enableSubmitButton(button, config);
 };
 
 const setEventListenersForValidation = (form, config) => {
@@ -52,6 +59,9 @@ const setEventListenersForValidation = (form, config) => {
       isValid(form, input, config);
       toggleSubmitButtonState(inputs, button, config);
     });
+  });
+  form.addEventListener('reset', () => {
+    disableSubmitButton(button, config);
   });
 };
 

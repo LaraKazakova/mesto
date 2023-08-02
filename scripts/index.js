@@ -18,8 +18,6 @@ const urlInput = formAddPlaceElement.querySelector('.form__input[name="url"]');
 const popupShowPlaceElement = document.querySelector('.popup_target_show-place');
 const popupShowPlaceImageElement = popupShowPlaceElement.querySelector('.popup__image');
 const popupShowPlaceImageCaptionElement = popupShowPlaceElement.querySelector('.popup__image-caption');
-// popup - 3 close buttons
-const buttonsCloseForm = document.querySelectorAll('.popup__button-close');
 // photo cards
 const photoCardsContainer = document.querySelector('.elements__container');
 const photoCardsTemplate = document.querySelector('.photo-cards').content.querySelector('.elements__item');
