@@ -1,6 +1,6 @@
 export class Card {
 
- constructor(cardObject, cardTemplate, openPopupFunction) {
+  constructor(cardObject, cardTemplate, openPopupFunction) {
     this._cardName = cardObject.name;
     this._cardLink = cardObject.link;
     this._cardTemplate = document.querySelector(cardTemplate).content.querySelector('.elements__item');

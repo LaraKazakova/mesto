@@ -1,6 +1,6 @@
 import {initialCards} from './cards-array.js';
 import {Card} from './Card.js';
-import {validationSettings, enableValidation} from './validate.js';
+import {FormValidator} from './FormValidator.js';
 
 
 const buttonEditProfile = document.querySelector('.profile__edit-button');
@@ -87,17 +87,6 @@ const handleFormAddPlaceSubmit = (evt) => {
   closePopup(popupAddPlaceElement);
 };
 
-// photo cards
-const placeInitialCards = () => {
-  initialCards.map(item => {
-    const card = new Card(item, '.photo-cards', openCardImage);
-    photoCardsContainer.append(card.placeCard());
-  });
-};
-placeInitialCards();
-
-
-
 const handleAddPlaceOpen = () => {
   openPopup(popupAddPlaceElement);
 };
@@ -111,6 +100,32 @@ formAddPlaceElement.addEventListener('submit', handleFormAddPlaceSubmit);
 setEventListenersToClosePopups();
 
 
+// photo cards
+const placeInitialCards = () => {
+  initialCards.map(item => {
+    const card = new Card(item, '.photo-cards', openCardImage);
+    photoCardsContainer.append(card.placeCard());
+  });
+};
+placeInitialCards();
 
 
-enableValidation(validationSettings); // temporary
+// validation
+const validationSettings = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__button',
+  inactiveButtonClass: 'form__button_disabled',
+  inputErrorClass: 'form__input_invalid',
+  errorClass: 'form__input-error_visible'
+};
+
+const startValidation = (config) => {
+  const forms = Array.from(document.querySelectorAll(config.formSelector));
+  forms.forEach((form) => {
+    const validator = new FormValidator(config, form);
+    validator.enableValidation();
+  });
+};
+
+startValidation(validationSettings);
