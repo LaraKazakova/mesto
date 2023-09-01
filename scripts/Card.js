@@ -1,6 +1,6 @@
 export class Card {
 
-  constructor(cardObject, cardTemplate, openPopupFunction) {
+  constructor(cardObject, cardTemplate, handleImageClick) {
     this._cardName = cardObject.name;
     this._cardLink = cardObject.link;
     this._cardTemplate = document.querySelector(cardTemplate).content.querySelector('.elements__item');
@@ -9,10 +9,10 @@ export class Card {
     this._cardElementTitle = this._cardNew.querySelector('.photo-card__title');
     this._cardElementButtonLike = this._cardNew.querySelector('.photo-card__button-like');
     this._cardElementButtonDelete = this._cardNew.querySelector('.photo-card__button-delete');
-    this._openPopupFunction = openPopupFunction;
+    this._handleImageClick = handleImageClick;
   };
 
-  _createCard() {
+  _fillCardData() {
     this._cardElementPicture.src = this._cardLink;
     this._cardElementPicture.alt = this._cardName;
     this._cardElementTitle.textContent = this._cardName;
@@ -30,14 +30,15 @@ export class Card {
 
   _handlePhotoCardDelete() {
     this._cardNew.remove();
+    this._cardNew = null;
   };
 
   _handlePhotoCardOpen() {
-    this._openPopupFunction(this._cardLink, this._cardName);
+    this._handleImageClick(this._cardLink, this._cardName);
   };
 
-  placeCard() {
-    this._createCard();
+  createCard() {
+    this._fillCardData();
     this._setEventListeners();
     return this._cardNew;
   };
