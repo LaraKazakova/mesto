@@ -87,12 +87,12 @@ const handleFormEditProfileSubmit = (evt) => {
 };
 
 const createPhotoCard = (cardData) => {
-  return new Card(cardData, '.photo-cards', openCardImage);
+  return new Card(cardData, '.photo-cards', openCardImage).createCard();
 };
 
 const placeInitialCards = () => {
   initialCards.map(item => {
-    photoCardsContainer.append(createPhotoCard(item).createCard());
+    photoCardsContainer.append(createPhotoCard(item));
   });
 };
 
@@ -100,7 +100,7 @@ const handleFormAddPlaceSubmit = (evt) => {
   evt.preventDefault();
 
   const cardData = { name: nameInput.value, link: urlInput.value };
-  photoCardsContainer.prepend(createPhotoCard(cardData).createCard());
+  photoCardsContainer.prepend(createPhotoCard(cardData));
 
   formAddPlaceElement.reset();
 
